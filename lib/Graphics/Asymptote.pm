@@ -9,7 +9,7 @@ use Time::HiRes qw( usleep );	# for brief pause after each sent command
 use IO::Handle;
 use Carp;
 
-use version; our $VERSION = qv('0.0.1');
+use version; our $VERSION = qv('0.0.2');
 
 # constructor functions
 sub new {
@@ -60,12 +60,12 @@ sub send {
 
 sub _send {
 	my $self = shift;
-	my $toSend = join('', @_);
+	my @toSend = @_;
 	
-	# append a newline if not given
-	$toSend .= "\n" unless($toSend =~ /\n$/);
-	print '*' x 10, ' To Asymptote ', '*' x 10, "\n", $toSend, '*' x 34, "\n\n" if $self->{verbose};
-	print {$self->{pipeHandle}} $toSend;
+	# append a newline to the last item if not given
+	$toSend[$#toSend] .= "\n" unless($toSend[$#toSend] =~ /\n$/);
+	print '*' x 10, ' To Asymptote ', '*' x 10, "\n", @toSend, '*' x 34, "\n\n" if $self->{verbose};
+	print {$self->{pipeHandle}} @toSend;
 	Time::HiRes::usleep($self->{sleepTime});
 
 	# weird memory hack
@@ -73,7 +73,7 @@ sub _send {
 	# not reclaimed as quickly as it could be?  As a result, when I send
 	# consecutive large strings, the memory grows and grows.  This helps avoid
 	# that problem.
-	undef $toSend;
+	undef @toSend;
 }
 
 sub _incVerbosity {
@@ -133,7 +133,7 @@ Graphics::Asymptote - Perl interface to the Asymptote interpreter
 
 =head1 VERSION
 
-This documentation refers to Graphics::Asymptote version 0.0.1.
+This documentation refers to Graphics::Asymptote version 0.0.2.
 
 =head1 SYNOPSIS
 
@@ -392,7 +392,7 @@ will have to do.
  $asy->send( qq{
      write("Hello!");                // my block of Asymptote code.
      int asy_var = $interpolate_me;  # Perlish comments are allowed, too, but
-	                                 # the '#' must be surrounded by spaces.
+	                             #    the '#' must be surrounded by spaces.
  });
 
 This command sends the given text to the Asymptote interpreter, removing Perlish
@@ -420,7 +420,7 @@ that resembles standard code blocks.  A silly example would look like this:
  $asy->send('int accumulator;');
  while($filename = glob('*.dat')) {
      open $fh $filename;
-     while($data = <$fh>) {                       # a Perl comment
+     while($data = <$fh>) {
          $asy->send(qq{
              for(int i = 0; i < $data; $i++) {
                  write(i);

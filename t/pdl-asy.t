@@ -70,4 +70,35 @@ SKIP:
 	chomp($chunks[2]);
 	is($chunks[2], 'real [][][] var = { {  {0, 1},  {2, 3} }, {  {4, 5},  {6, 7} }};',
 		'properly packages higher-dimensional arrays');
+	
+	
+	### Check what is received ###
+	# This needs work; in particular, rather than sleeping for 10s, the files
+	# should be checked if they exist and are done being written.
+	
+#	$asy->send_pdl(test1 => sequence(10), test2 => sequence(10000),
+#		test3 => sequence(500,500));
+#	$asy->send( qq {
+#		file test_file = output('test1.dat');
+#		write(test_file, test1);
+		
+#		test_file = output('test2.dat');
+#		write(test_file, test2);
+		
+#		test_file = output('test3.dat');
+#		write(test_file, test3);
+#	});
+#	# give some time for everything to process
+#	sleep 10;
+#	# Finally, open up the resulting files and see if their contents match what
+#	# we sent them.
+#	use PDL::IO::Misc;
+#	my $confirm1 = pdl(rcols('test1.dat'));
+#	my $confirm2 = pdl(rcols('test2.dat'));
+#	my $confirm3 = pdl(rcols('test3.dat'));
+	
+#	ok(sum($confirm1 - sequence(10)) == 0, '10 element piddle transfer');
+#	ok(sum($confirm2 - sequence(10000)) == 0, '10,000 element piddle transfer');
+#	ok(sum($confirm3 - sequence(500,500)) == 0, '500x500 element piddle transfer');
+	
 }

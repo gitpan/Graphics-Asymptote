@@ -1,4 +1,4 @@
-Graphics-Asymptote version 0.0.1
+Graphics-Asymptote version 0.0.2
 
 This module provides a wrapper around the interpretor for Asymptote, a vector
 graphics language.  This is the initial release of the module.

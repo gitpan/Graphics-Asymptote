@@ -1,11 +1,8 @@
 #!perl
 
-use Test::More tests => 18;
+use Test::More tests => 17;
 use strict;
 use warnings;
-
-# the user must have 'asy' in the path:
-ok(system('asy -version') == 0, 'asy binary should be in the path');
 
 use Graphics::Asymptote;
 

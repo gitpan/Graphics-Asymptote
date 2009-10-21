@@ -1,10 +1,10 @@
 Build.PL
 Changes
-MANIFEST
-README
 lib/Graphics/Asymptote.pm
 lib/PDL/Graphics/Asymptote.pm
+MANIFEST
+META.yml
+README
 t/00.load.t
 t/asy.t
 t/pdl-asy.t
-META.yml

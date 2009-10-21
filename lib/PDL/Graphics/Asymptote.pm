@@ -9,7 +9,7 @@ use warnings;
 use Graphics::Asymptote;
 use PDL;
 
-use version; our $VERSION = qv('0.0.1');
+use version; our $VERSION = qv('0.0.2');
 
 use PDL::Core;
 
@@ -109,7 +109,7 @@ PDL::Graphics::Asymptote - PDL interface to the Asymptote interpreter
 
 =head1 VERSION
 
-This documentation refers to PDL::Graphics::Asymptote version 0.0.1.
+This documentation refers to PDL::Graphics::Asymptote version 0.0.2.
 
 =head1 SYNOPSIS
 
