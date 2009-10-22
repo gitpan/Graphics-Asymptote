@@ -9,7 +9,7 @@ use warnings;
 use Graphics::Asymptote;
 use PDL;
 
-use version; our $VERSION = qv('0.0.2');
+use version; our $VERSION = qv('0.0.3');
 
 use PDL::Core;
 

@@ -11,7 +11,8 @@ my $builder = Module::Build->new(
     requires => {
         'Test::More'  => 0,
         'version'     => 0,
-	'Time::HiRes' => 0,
+		'Time::HiRes' => 0,
+		'perl'        => 5.010000,
     },
     recommends => {
 	    'PDL'     => 0,

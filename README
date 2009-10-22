@@ -1,4 +1,4 @@
-Graphics-Asymptote version 0.0.2
+Graphics-Asymptote version 0.0.3
 
 This module provides a wrapper around the interpretor for Asymptote, a vector
 graphics language.  This is the initial release of the module.
@@ -15,7 +15,9 @@ To install this module, run the following commands:
 
 DEPENDENCIES
 
-asy, the Asymptote interpreter.  To install this dependency, go to
+Perl version 5.10 or higher (you need the //= operator).
+
+Also, asy, the Asymptote interpreter.  To install this dependency, go to
 
   http://asymptote.sourceforge.net/
 

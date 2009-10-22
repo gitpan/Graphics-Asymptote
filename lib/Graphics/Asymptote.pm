@@ -9,7 +9,7 @@ use Time::HiRes qw( usleep );	# for brief pause after each sent command
 use IO::Handle;
 use Carp;
 
-use version; our $VERSION = qv('0.0.2');
+use version; our $VERSION = qv('0.0.3');
 
 # constructor functions
 sub new {
